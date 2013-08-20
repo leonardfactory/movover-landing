@@ -41,14 +41,18 @@
 
             </div>
             <div class="col-sm-8" id="col-subscribe">
-                <p>
-                    * At least, a bit. Sign up for early access and see how it can change!
-                </p>
+                <div id="pre-subscribe">
+                    <p>
+                        * At least, a bit. Sign up for early access and see how it can change!
+                    </p>
 
-                <div class="input-group">
-                    <input type="email" name="email" placeholder="your@email.com" /><button class="btn btn-default" type="button">Get in!</button>
+                    <form action="http://movover.us7.list-manage1.com/subscribe/post-json?u=3f6292f3d3667d81f0e829428&id=0b7a043ee5&c=?" method="get">
+                        <input type="email" name="EMAIL" id="email" placeholder="your@email.com" /><input type="submit" id="btn-subscribe" type="button" value="Get in!" />
+                    </form>
                 </div>
-                <!-- /input-group -->
+                <div id="success-subscribe" style="display: none;">
+                    Here we go! Now you need only to check your <strong>email</strong> and confirm your subscription!
+                </div>
             </div>
         </div>
 
@@ -80,8 +84,50 @@
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
-        <!--<script src="js/plugins.js"></script>
-        <script src="js/main.js"></script>-->
+
+        <script type="text/javascript">
+            // MailChimp AJAX Subscription, thanks to http://stackoverflow.com/questions/8425701/ajax-mailchimp-signup-form-integration
+            $(document).ready( function () {
+                var $form = $('form'),
+                    $pre = $('#pre-subscribe'),
+                    $success = $('#success-subscribe');
+
+                if ( $form.length > 0 ) {
+                    $('form input[type="submit"]').bind('click', function ( event ) {
+                        if ( event ) event.preventDefault();
+                        if ( is_valid($form.children('#email').val()) ) { register($form); }
+                    });
+                }
+
+                function is_valid(email) {
+                    var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+                    return regex.test(email);
+                }
+
+                function register($form) {
+                    $.ajax({
+                        type: $form.attr('method'),
+                        url: $form.attr('action'),
+                        data: $form.serialize(),
+                        cache       : false,
+                        dataType    : 'json',
+                        contentType: "application/json; charset=utf-8",
+                        error       : function(err) { alert("Could not connect to the registration server. Please try again later."); },
+                        success     : function(data) {
+                            if (data.result != "success") {
+                                // Something went wrong, do something to notify the user. maybe alert(data.msg);
+                            } else {
+                                // It worked, carry on...
+                                console.log('ok');
+                                $pre.fadeOut('fast', function(){
+                                   $success.fadeIn('fast');
+                                });
+                            }
+                        }
+                    });
+                }
+            });
+        </script>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>

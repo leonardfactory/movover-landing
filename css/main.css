@@ -254,6 +254,8 @@ input[type="email"] {
     border-top-left-radius: 8px;
     border-bottom-left-radius: 8px;
 
+    width: 400px;
+
     outline: none;
     padding: 0.6em;
 
@@ -262,7 +264,7 @@ input[type="email"] {
     color: #547894;
 }
 
-button {
+input[type="submit"] {
     -webkit-border-top-right-radius: 8px;
     -webkit-border-bottom-right-radius: 8px;
     -moz-border-radius-topright: 8px;
@@ -278,7 +280,7 @@ button {
     color: #ffffff;
 }
 
-button:hover {
+input[type="submit"]:hover {
     border: 1px solid #4fd192;
     background-color: #4fd192;
 }
