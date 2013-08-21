@@ -7,6 +7,7 @@
         <meta name="description" content="Movover is a mobile app that keeps you updated on places you love.">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+        <!-- Favicon -->
         <link rel="icon" href="favicon.ico" />
 
         <!-- Bootstrap -->
@@ -39,9 +40,7 @@
         </div>
 
         <div class="row row-white row-white-push-top">
-            <div class="col-sm-4">
-
-            </div>
+            <div class="col-sm-4"></div>
             <div class="col-sm-8" id="col-subscribe">
                 <div id="pre-subscribe">
                     <p>
@@ -88,7 +87,10 @@
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
 
         <script type="text/javascript">
-            // MailChimp AJAX Subscription, thanks to http://stackoverflow.com/questions/8425701/ajax-mailchimp-signup-form-integration
+            /** MailChimp AJAX Subscription
+             *
+             * found @ http://stackoverflow.com/questions/8425701/ajax-mailchimp-signup-form-integration
+             */
             $(document).ready( function () {
                 var $form = $('form'),
                     $pre = $('#pre-subscribe'),
@@ -117,9 +119,9 @@
                         error       : function(err) { alert("Could not connect to the registration server. Please try again later."); },
                         success     : function(data) {
                             if (data.result != "success") {
-                                // Something went wrong, do something to notify the user. maybe alert(data.msg);
+                                // Why, why, you were my friend...
                             } else {
-                                // It worked, carry on...
+                                // It worked, thanks god!
                                 console.log('ok');
                                 $pre.fadeOut('fast', function(){
                                    $success.fadeIn('fast');
@@ -131,7 +133,7 @@
             });
         </script>
 
-        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <!-- Google Analytics -->
         <script>
             var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
             (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
