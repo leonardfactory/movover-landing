@@ -59,6 +59,10 @@
                     <form action="http://movover.us7.list-manage1.com/subscribe/post-json?u=3f6292f3d3667d81f0e829428&id=0b7a043ee5&c=?" method="get">
                         <input type="email" name="EMAIL" id="email" placeholder="your@email.com" /><input type="submit" id="btn-subscribe" type="button" value="Get in!" />
                     </form>
+
+                    <p id="error-box" style="display: none;">
+                        Oops! It seems like you didn't write down your email
+                    </p>
                 </div>
                 <div id="success-subscribe" style="display: none;">
                     <p>Here we go! Now you need only to check your <strong>email</strong> and confirm your subscription!</p>
@@ -105,6 +109,7 @@
             $(document).ready( function () {
                 var $form = $('form'),
                     $pre = $('#pre-subscribe'),
+                    $error = $('#error-box'),
                     $success = $('#success-subscribe');
 
                 if ( $form.length > 0 ) {
@@ -114,9 +119,23 @@
                     });
                 }
 
+                function show_error(error) {
+                    $error.html(error).fadeIn('fast').delay(3000).fadeOut('slow');
+                }
+
                 function is_valid(email) {
-                    var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-                    return regex.test(email);
+                    var passed = false;
+                    if(email == "") {
+                        show_error("Oops! It seems like you didn't write down your email.");
+                    }
+                    else {
+                        var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+                        passed = regex.test(email);
+                        if(!passed) {
+                            show_error("Oops! It seems like you wrote an invalid email address, check it and retry!");
+                        }
+                    }
+                    return passed;
                 }
 
                 function register($form) {
@@ -127,10 +146,11 @@
                         cache       : false,
                         dataType    : 'json',
                         contentType: "application/json; charset=utf-8",
-                        error       : function(err) { alert("Could not connect to the registration server. Please try again later."); },
+                        error       : function(err) { show_error("Could not connect to the registration server. Please try again later"); },
                         success     : function(data) {
                             if (data.result != "success") {
                                 // Why, why, you were my friend...
+                                show_error("Something went wrong with your mail! We\'re sorry, try again later")
                             } else {
                                 // It worked, thanks god!
                                 $pre.fadeOut('fast', function(){

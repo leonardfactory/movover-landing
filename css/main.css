@@ -291,6 +291,11 @@ input[type="submit"]:hover {
     background-color: #4fd192;
 }
 
+#error-box {
+    margin-top: 1.2em;
+    color: #b32f2f;
+}
+
 /**
  * Social links
  */
