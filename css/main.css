@@ -289,6 +289,12 @@ p.push-top {
     }
 }
 
+@media (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) {
+    #logo-big {
+        background-image: url('../img/logo-big.png') !important;
+    }
+}
+
 /**
  * Signup form
  */
