@@ -3,13 +3,10 @@
 
 # TEAM
 
-    <name> -- <role> -- <twitter>
-
-# THANKS
-
-    <name>
+    Leonardo Ascione -- Design, coding & idea -- @leonardfactory
+    Federico Zarfati -- Copywriting -- @fedezarf
 
 # TECHNOLOGY COLOPHON
 
     HTML5, CSS3
-    Normalize.css, jQuery, Modernizr
+    Normalize.css, jQuery, Bootstrap
