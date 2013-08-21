@@ -216,6 +216,12 @@ p.push-top {
     margin-top: 3em;
 }
 
+.row {
+    /* Thou, heartless bi*ch.. */
+    margin-left: 0;
+    margin-right: 0;
+}
+
 .row-white {
     background-color: #ffffff;
 }
@@ -226,6 +232,61 @@ p.push-top {
 
 .col-padded-top {
     padding-top: 1.2em;
+}
+
+/**
+ * Responsiveness!
+ */
+@media (max-width:768px) {
+    p.push-top {
+        margin-top: 1.2em;
+    }
+
+    .col-sm-8 {
+        padding-left: 0.4em;
+        padding-right: 0.4em;
+    }
+
+    #logo-big {
+        background-image: url('../img/logo-small.png');
+        width: 97px;
+        height: 132px;
+        float: none;
+        clear: both;
+        margin: 0 auto;
+    }
+
+    h1, h2, p  {
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 2.4em;
+    }
+
+    h2 {
+        font-size: 1.6em;
+    }
+}
+
+@media (max-width:992px) {
+    ul#social li {
+        display: block !important;
+        margin: 1em 0 !important;
+    }
+
+    ul#social li.social-first {
+        margin-top: 0 !important;
+    }
+}
+
+/**
+ * Retinas
+ */
+@media (max-width:768px) and (min-resolution: 2dppx) {
+    #logo-big {
+        background-image: url('../img/logo-big.png') !important;
+    }
 }
 
 /**
