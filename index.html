@@ -22,6 +22,15 @@
         <link rel="stylesheet" href="css/main.css">
     </head>
     <body>
+        <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=415309488568416";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+
         <!--[if lt IE 7]>
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
@@ -52,7 +61,7 @@
                     </form>
                 </div>
                 <div id="success-subscribe" style="display: none;">
-                    Here we go! Now you need only to check your <strong>email</strong> and confirm your subscription!
+                    <p>Here we go! Now you need only to check your <strong>email</strong> and confirm your subscription!</p>
                 </div>
             </div>
         </div>
@@ -62,23 +71,24 @@
             <div class="col-sm-8">
                 <ul id="social">
                     <li class="social-first">
-                        <a href="http://facebook.com/movoverapp" target="_blank">
-                            <div class="icon icon-facebook"></div>
-                            movoverapp
-                        </a>
+                        <div class="fb-like" data-href="https://www.facebook.com/movoverapp" data-width="450" data-layout="button_count" data-show-faces="false" data-send="false"></div>
                     </li>
                     <li>
-                        <a href="http://twitter.com/movover" target="_blank">
-                            <div class="icon icon-twitter"></div>
-                            @movover
-                        </a>
+                        <a href="https://twitter.com/movover" class="twitter-follow-button" data-show-count="false">Follow @movover</a>
+                        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
                     </li>
                     <li>
-                        <a href="http://plus.google.com/movover" target="_blank">
-                            <div class="icon icon-google"></div>
-                            movover
-                        </a>
-                    </li>
+                        <!-- Place this tag where you want the +1 button to render. -->
+                        <div class="g-plusone" data-size="medium"></div>
+
+                        <!-- Place this tag after the last +1 button tag. -->
+                        <script type="text/javascript">
+                            (function() {
+                                var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+                                po.src = 'https://apis.google.com/js/plusone.js';
+                                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+                            })();
+                        </script>
                 </ul>
             </div>
         </div>

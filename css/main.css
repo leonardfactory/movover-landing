@@ -303,7 +303,7 @@ ul#social {
 
 ul#social li {
     display: inline;
-    margin: 0 2em;
+    margin: 0 0.8em;
 }
 
 ul#social li.social-first {
@@ -422,7 +422,7 @@ ul#social a:hover .icon {
 
     ul#social li {
         display: block !important;
-        margin: 1em 0 !important;
+        margin: 0.4em 0 !important;
     }
 
     ul#social li.social-first {
