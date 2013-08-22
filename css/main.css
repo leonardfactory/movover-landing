@@ -212,6 +212,10 @@ p.push-top {
     margin-top: 1.6em;
 }
 
+p.push-top-small {
+    margin-top: 0.6em;
+}
+
 .row-push-top {
     margin-top: 3em;
 }
