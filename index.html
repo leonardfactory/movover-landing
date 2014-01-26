@@ -36,10 +36,10 @@
         <![endif]-->
 
         <div class="row row-push-top">
-            <div class="col-sm-4 col-full">
+            <div class="col-sm-3 col-full">
                 <div id="logo-big"></div>
             </div>
-            <div class="col-sm-8 col-padded-top">
+            <div class="col-sm-9 col-padded-top">
                 <h1>Rivoluzioniamo lo shopping.</h1>
                 <h2>Coming Soon.</h2>
                 <p class="push-top">
@@ -49,18 +49,18 @@
         </div>
 
         <div class="row row-white row-white-push-top">
-            <div class="col-sm-4"></div>
-            <div class="col-sm-8" id="col-subscribe">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-9" id="col-subscribe">
                 <div id="pre-subscribe">
                     <p>
                         Vuoi saperne di pi&ugrave;? Iscriviti alla newsletter per partecipare alla beta e ricevere aggiornamenti.<br />
                     </p>
 
                     <form action="http://movover.us7.list-manage1.com/subscribe/post-json?u=3f6292f3d3667d81f0e829428&id=0b7a043ee5&c=?" method="get">
-                        <input type="email" name="EMAIL" id="email" placeholder="your@email.com" /><input type="submit" id="btn-subscribe" type="button" value="Get in!" />
+                        <input type="email" name="EMAIL" id="email" placeholder="tua@email.com" /><input type="submit" id="btn-subscribe" type="button" value="Iscrivimi" />
                     </form>
                     <p class="push-top-small">
-                        <small>Niente spam. Promesso.</small>
+                        <small>  Niente spam. Promesso.</small>
                     </p>
 
                     <p id="error-box" style="display: none;">
@@ -74,12 +74,12 @@
         </div>
 
         <div class="row row-push-top">
-            <div class="col-sm-4"></div>
-            <div class="col-sm-8">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-9">
                 <ul id="social">
                     <li class="social-first">
                         <!-- Twitter following -->
-                        <a href="https://twitter.com/movover" class="twitter-follow-button" data-show-count="false">Follow @movover</a>
+                        <a href="https://twitter.com/movover" class="twitter-follow-button" data-show-count="false">Segui @movover</a>
                         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
                     </li>
                     <li>
@@ -129,13 +129,13 @@
                 function is_valid(email) {
                     var passed = false;
                     if(email == "") {
-                        show_error("Oops! It seems like you didn't write down your email.");
+                        show_error("Oops! Sembra che tu non abbia inserito la tua email.");
                     }
                     else {
                         var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
                         passed = regex.test(email);
                         if(!passed) {
-                            show_error("Oops! It seems like you wrote an invalid email address, check it and retry!");
+                            show_error("Oops! Sembra che tu abbia inserito una email non valida, controlla di nuovo.");
                         }
                     }
                     return passed;
@@ -149,11 +149,11 @@
                         cache       : false,
                         dataType    : 'json',
                         contentType: "application/json; charset=utf-8",
-                        error       : function(err) { show_error("Could not connect to the registration server. Please try again later"); },
+                        error       : function(err) { show_error("Impossibile connettersi al server. Per favore, riprova più tardi."); },
                         success     : function(data) {
                             if (data.result != "success") {
                                 // Why, why, you were my friend...
-                                show_error("Something went wrong with your mail! We\'re sorry, try again later")
+                                show_error("Qualcosa è andato storto con la tua email! Siamo spiacenti, riprova più tardi.")
                             } else {
                                 // It worked, thanks god!
                                 $pre.fadeOut('fast', function(){
